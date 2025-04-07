@@ -22,6 +22,14 @@ contract Variables {
     enum State { Created, Locked, Inactive } //Enum
     State public state;
 
+    event Added(uint16);
+
+    function addedWithEvent(uint8 _a , uint8 _b) public returns (uint16){
+      uint16 calculated = _a + _b;
+      emit Added(calculated);     
+      return calculated; 
+    }
+
     // public, internal, external, private
     // public: Everyone can see
     // internal: This contract and contracts that inherit from it, can be seen / equals protected in java
